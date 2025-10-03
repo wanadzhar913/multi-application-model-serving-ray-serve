@@ -64,3 +64,4 @@ schema.sql
 *.sqlite3
 ssh_keys/
 notebooks/
+images/

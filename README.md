@@ -22,6 +22,7 @@ uv pip install -r pyproject.toml --group dev # to add dev dependencies
 ```
 
 ### How to deploy the project (Locally)
+Run the below and you should see the dashboard pop up at http://localhost:8265/#/serve.*
 
 ```bash
 serve build app.text_embedding:app -o config.yaml # generate `config.yaml` (if you haven't)
@@ -31,8 +32,9 @@ serve run config.yaml
 ray stop # shut down ray cluster once your done testing
 ```
 
+![dashboard-screenshot](/images/dashboard-screenshot.png)
+
 ### How to deploy the project (with Docker)
-I can't get the dashboard (at port 8265) up for some reason!
 
 ```
 docker build -t ray-embedding-service .
@@ -40,7 +42,7 @@ docker run -it --rm --gpus all -p 8000:8000 -p 8265:8265 -p 6379:6379 ray-embedd
 ```
 
 ### To do's
-- [ ] Figure out why Ray Dashboard isn't showing up at port 8265
+- [x] Figure out why Ray Dashboard isn't showing up at port 8265
 - [ ] Use smaller Docker Image for `Dockerfile`
 - [ ] Serve colpali model
 - [ ] Add dynamic check to see if Ray Cluster is up in `scripts/entrypoint.sh`
@@ -51,3 +53,4 @@ docker run -it --rm --gpus all -p 8000:8000 -p 8265:8265 -p 6379:6379 ray-embedd
 - For FastAPI integration: https://github.com/ray-project/ray/blob/cfcc68f13798eb5c2c9888a089d4b9c95d21b7fc/python/ray/serve/tests/test_fastapi.py#L153-L325
 - How to install `flash-attn` with `--no-build-isolation` using `uv`: https://github.com/astral-sh/uv/issues/6437#issuecomment-3167274955
 - https://stackoverflow.com/questions/67468439/vs-code-devcontainers-what-is-the-difference-between-remoteuser-and-containeru
+- Ray Dashboard is empty: https://discuss.ray.io/t/ray-dashboard-is-empty/12883/6 **(we solved this by bumping up Ray version from 2.8.2 to 2.9.0)*

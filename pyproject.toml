@@ -12,7 +12,7 @@ dependencies = [
     "opencv-python==4.12.0.88",
     "pydantic==2.11.7",
     "protobuf==6.31.1",
-    "ray[default,serve]==2.48.0",
+    "ray[default,serve]==2.49.2",
     "torch==2.7.0",
     "transformers==4.53.3",
     "uvicorn==0.35.0",
