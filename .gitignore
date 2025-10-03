@@ -1,0 +1,85 @@
+# ---------- Python compiled & cache ----------
+__pycache__/
+*.py[cod]
+*$py.class
+wheels/
+
+# ---------- C extensions & build ----------
+*.so
+build/
+dist/
+*.egg
+*.egg-info/
+*.manifest
+*.spec
+MANIFEST
+
+# ---------- Virtual environments ----------
+.env
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.env.development
+.env.production
+
+# ---------- Logs & temporary files ----------
+*.log
+pip-log.txt
+pip-delete-this-directory.txt
+logs/
+
+# ---------- Tests & coverage ----------
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# ---------- Documentation ----------
+docs/_build/
+site/
+
+# ---------- IDE & editor ----------
+.idea/
+.spyderproject
+.spyproject
+.ipynb_checkpoints
+
+# ---------- Package management ----------
+Pipfile.lock
+poetry.lock
+.pdm.toml
+.pdm-python
+.pdm-build/
+__pypackages__/
+
+# ---------- Static analysis & debug ----------
+.mypy_cache/
+.dmypy.json
+.dmypy.json
+.pyre/
+.pytype/
+.cython_debug/
+.ruff_cache/
+
+# ---------- Celery ----------
+celerybeat-schedule
+celerybeat.pid
+
+# ---------- PyPI config ----------
+.pypirc
+
+# ---------- Miscellaneous ----------
+evals/reports/
+ssh_keys/

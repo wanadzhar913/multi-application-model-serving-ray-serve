@@ -1,0 +1,35 @@
+{                                                                                                                          
+  "name": "Embedding Services API using Ray",
+  "image": "nvidia/cuda:12.8.0-devel-ubuntu22.04",
+  "features": {
+    // NOTE: docker-in-docker is buggy: https://github.com/devcontainers/features/issues/831
+    "ghcr.io/devcontainers/features/docker-in-docker:2.12.4": {},
+    "ghcr.io/devcontainers/features/git:1": {
+        "version" : "2.49.0"
+    }
+  },
+  "runArgs": [
+     "--name", "devcontainer-rayembeddingservice",
+     "--gpus", "all"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-python.vscode-pylance",
+        "ms-python.pylint",
+        "donjayamanne.githistory",
+        "ms-python.isort",
+        "ms-toolsai.vscode-jupyter-cell-tags",
+        "ms-toolsai.vscode-jupyter-powertoys",
+        "docsmsft.docs-markdown",
+        "ms-azuretools.vscode-containers"
+      ]
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh"
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // Run "whoami" on your Remote Server
+	// "remoteUser": "devops_f"
+}
