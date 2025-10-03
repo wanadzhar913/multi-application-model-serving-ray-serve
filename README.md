@@ -40,8 +40,9 @@ docker run -it --rm --gpus all -p 8000:8000 -p 8265:8265 -p 6379:6379 ray-embedd
 ```
 
 ### To do's
-[] Serve colpali model
-[] Add dynamic check to see if ray cluster is up in `scripts/entrypoint.sh`
+- [] Figure out why Ray Dashboard isn't showing up at port 8265
+- [] Serve colpali model
+- [] Add dynamic check to see if Ray Cluster is up in `scripts/entrypoint.sh`
 
 ### Resources
 
