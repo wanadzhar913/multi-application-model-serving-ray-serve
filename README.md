@@ -1,6 +1,6 @@
 ### Introduction
 
-Our aim is to serve `Qwen/Qwen3-Embedding-0.6B` and myriad other embedding models using Ray Serve, specificially, we're aiming to follow the [Multi-application design pattern for Ray Serve.](https://docs.ray.io/en/latest/serve/multi-app.html)
+Our aim is to serve `Qwen/Qwen3-Embedding-0.6B` and `Qwen/Qwen3-Reranker-0.6B` using Ray Serve, specificially, we're aiming to follow the [Multi-application design pattern.](https://docs.ray.io/en/latest/serve/multi-app.html)
 
 ### How to setup your environment for testing & development
 **OPTIONAL (if you're CUDA drivers aren't updated, etc.):** On VSCode, set up the `devcontainer.json` by clicking `CTRL` + `SHIFT` + `p` > Reopen in Container.
@@ -43,14 +43,14 @@ docker run -it --rm --gpus all -p 8000:8000 -p 8265:8265 -p 6379:6379 ray-embedd
 
 ### To do's
 - [x] Figure out why Ray Dashboard isn't showing up at port 8265
+- [x] Serve Reranker model
+- [x] Add dynamic check to see if Ray Cluster is up in `scripts/entrypoint.sh`
 - [ ] Use smaller Docker Image for `Dockerfile`
-- [ ] Serve colpali model
-- [ ] Add dynamic check to see if Ray Cluster is up in `scripts/entrypoint.sh`
 
 ### Resources
 
 - Multi-application for Ray Serve (main project inspiration): https://docs.ray.io/en/latest/serve/multi-app.html
 - For FastAPI integration: https://github.com/ray-project/ray/blob/cfcc68f13798eb5c2c9888a089d4b9c95d21b7fc/python/ray/serve/tests/test_fastapi.py#L153-L325
 - How to install `flash-attn` with `--no-build-isolation` using `uv`: https://github.com/astral-sh/uv/issues/6437#issuecomment-3167274955
-- https://stackoverflow.com/questions/67468439/vs-code-devcontainers-what-is-the-difference-between-remoteuser-and-containeru
+- Devcontainer: Diff between Remote & Container Users: https://stackoverflow.com/questions/67468439/vs-code-devcontainers-what-is-the-difference-between-remoteuser-and-containeru
 - Ray Dashboard is empty: https://discuss.ray.io/t/ray-dashboard-is-empty/12883/6 **(we solved this by bumping up Ray version from 2.8.2 to 2.9.0)*

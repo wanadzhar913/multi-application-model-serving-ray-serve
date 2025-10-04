@@ -3,10 +3,11 @@ from typing import List, Optional
 
 import torch
 from torch import Tensor
+import numpy as np
+import numpy.typing as npt
 from transformers import AutoTokenizer, AutoModel
 
 import starlette
-
 from ray import serve
 
 @serve.deployment
@@ -50,11 +51,12 @@ class Qwen3TextEmbedding:
         """Formats a query with a given task description."""
         return f'Instruct: {task_description}\nQuery: {query}'
 
+    @torch.no_grad()
     def embed(
             self,
             texts: List[str],
             instruction: Optional[str] = None,
-        ) -> List[List[float]]:
+        ) -> npt.NDArray[np.float16]:
         """
         Generates normalized embeddings for input text(s).
 
@@ -84,7 +86,6 @@ class Qwen3TextEmbedding:
     
     async def __call__(self, req: starlette.requests.Request):
         req = await req.json()
-        print(req)
         return self.embed(
             req["texts"],
             req["instruction"]

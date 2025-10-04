@@ -1,4 +1,4 @@
-# This file was generated using the `serve build` command on Ray v2.48.0.
+# This file was generated using the `serve build` command on Ray v2.49.2.
 
 proxy_location: EveryNode
 
@@ -28,7 +28,7 @@ logging_config:
 
 applications:
 
-- name: qwen3app
+- name: app_embedding
 
   route_prefix: /embed_text
 
@@ -39,7 +39,23 @@ applications:
   deployments:
 
   - name: Qwen3TextEmbedding
-    num_replicas: 2
+    num_replicas: 1
+    ray_actor_options:
+      num_cpus: 0.2
+      num_gpus: 0.2
+
+- name: app_reranker
+
+  route_prefix: /rerank_documents
+
+  import_path: app.text_reranker:app
+
+  runtime_env: {}
+
+  deployments:
+
+  - name: Qwen3TextReranker
+    num_replicas: 1
     ray_actor_options:
       num_cpus: 0.2
       num_gpus: 0.2
