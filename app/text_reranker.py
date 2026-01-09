@@ -59,7 +59,7 @@ class Qwen3TextReranker:
         return inputs
 
     @torch.no_grad()
-    @serve.batch(max_batch_size=10, batch_wait_timeout_s=0.1)
+    # @serve.batch(max_batch_size=10, batch_wait_timeout_s=0.1)
     async def rerank(
         self,
         query: str, # limit to 1 query
