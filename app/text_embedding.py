@@ -52,7 +52,7 @@ class Qwen3TextEmbedding:
         return f'Instruct: {task_description}\nQuery: {query}'
 
     @torch.no_grad()
-    @serve.batch(max_batch_size=10, batch_wait_timeout_s=0.1)
+    # @serve.batch(max_batch_size=10, batch_wait_timeout_s=0.1)
     async def embed(
             self,
             texts: List[str],
